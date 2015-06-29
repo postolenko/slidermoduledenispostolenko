@@ -181,7 +181,7 @@ $(document).ready(function() {
 
 		// if($(window).width() > 480) {
 
-			// clearTimeout(sliderStart);
+			clearTimeout(sliderStart);
 
 			sliderStart = setTimeout(function() {
 
