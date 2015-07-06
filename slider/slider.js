@@ -186,7 +186,8 @@ $(document).ready(function() {
 
 				}
 
-				$(".play-pause-btn").html("<img src='img/"+ playBtnImg +"_btn.svg' alt='"+ playBtnImg +"' />");
+				$(".play-pause-btn img").attr("src","resources/slider/img/"+ playBtnImg +"_btn.svg");
+				$(".play-pause-btn img").attr("alt",playBtnImg);
 				
 			});
 
