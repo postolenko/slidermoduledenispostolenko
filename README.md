@@ -1,5 +1,5 @@
-The first folder " slider " is demo of this slider onli for presentation. 
-You can upload this code and use in your site.
+The first folder " slider " is demo of this slider only for presentation. 
+You can upload this code and use on your site.
 # http://postolenko.github.io/slidermoduledenispostolenko/slider
 
 
