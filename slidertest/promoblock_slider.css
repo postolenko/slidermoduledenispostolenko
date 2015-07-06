@@ -1,0 +1,139 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.for-slider {
+	position: relative;
+	top:0; left:0;
+	width: 100%;
+	height: 100vh;
+	z-index: 1;
+	background-color: #808080;
+	/*background-color: #111111; */
+}
+
+.for-slider div {
+	position: absolute;
+	top:0; left:0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	display: none;
+	background-attachment: fixed;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.for-slider div {
+		background-attachment: scroll;
+	}
+}
+
+
+.bg-for-mobile {
+	background-image: url("img/Sedona_Arizona_for_mobile.jpg");
+}
+
+.slide-1 {
+	background-image: url("img/Sedona_Arizona.jpg");
+}
+
+.slide-2 {
+	background-image: url("img/sedona2.jpg");
+}
+
+.slide-3 {
+	background-image: url("img/sedona3.jpg");
+}
+
+.slide-4 {
+	background-image: url("img/sedona4.jpg");
+}
+
+.slide-5 {
+	background-image: url("img/sedona5.jpg");
+}
+
+.slide-6 {
+	background-image: url("img/sedona6.jpg");
+}
+
+.tools-slider {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	padding: 10px 0 10px 20px;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjIiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjIiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: rgba(255,255,255,0.2);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', endColorstr='#33ffffff',GradientType=0 );
+	z-index: 2;
+	font-size: 0;
+	line-height: 0;
+}
+
+.slider-numbers {
+	width: 60%;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: right;
+}
+
+.slider-num {
+	display: inline-block;
+	vertical-align: top;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+	margin: 5px 15px 5px 0;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	border: 2px solid #ffffff;
+}
+
+.bg-slider-num-active {
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC41Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC41Ii8+CiAgPC9yYWRpYWxHcmFkaWVudD4KICA8cmVjdCB4PSItNTAiIHk9Ii01MCIgd2lkdGg9IjEwMSIgaGVpZ2h0PSIxMDEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: rgba(255,255,255,0.5);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#80ffffff',GradientType=1 );
+}
+
+.play-pause-btn-box {
+	text-align: center;
+	width: 40%;
+	display: inline-block;
+	vertical-align: middle;
+	/*float: left;*/
+}
+
+.play-pause-btn {
+	text-align: center;
+	width: 20%;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 20px;
+	line-height: 20px;
+	cursor: pointer;
+	margin: 0 5px;
+}
+
+.section-for-scroll {
+	/*height: 1500px;*/
+	width: 100%;
+}
+
+.eventmassage {
+	position: fixed;
+	top: 50px;
+	right: 100px;
+	padding: 20px;
+	color: #111111;
+	font-size: 20px;
+	line-height: 20px;
+	background-color: yellow;
+	z-index: 2;
+}

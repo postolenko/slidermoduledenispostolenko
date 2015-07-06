@@ -9,6 +9,10 @@ $(document).ready(function() {
 		$(".for-slider").addClass("bg-for-mobile");
 
 	} else {
+
+
+		$(".section-for-scroll").css({"height": ($(".for-slider").height() + $(window).height()) + "px"});
+		$(window).scrollTop($(".for-slider").height() + $(window).height());
 		
 		// Else The slide will start
 		var documentEvent = "document was downloaded";
@@ -22,16 +26,24 @@ $(document).ready(function() {
 
 		var nextSlider = 1;
 
-		var countResizeForSlider = 0;
-
-		
+		var countResizeForSlider = 0;		
 
 		var countForClearRezize;
 
 		var countScrollForSlider = 0;
 
+		var countClearScrollForSlider = 0;
 
 		var firstWidth;
+
+		var pauseSlide;
+
+	// Slider and Window Coors 
+		var sliderCoorTop;
+		var sliderCoorBottom;
+		var topWindowCoor;
+		var bottomWindowCoor;
+
 
 		if($(window).width() > 480) {
 
@@ -64,7 +76,6 @@ $(document).ready(function() {
 		// Calling the function to start this slide show
 		startSlide();
 
-
 		$(document).scroll(function() {
 			// if user is making the scroll we must know it
 			documentEvent = "document was scrolled";
@@ -76,7 +87,8 @@ $(document).ready(function() {
 
 		$(window).resize(function() {
 			// If user see the slide
-			if ( $(window).scrollTop() <= $(".for-slider").height() ) {
+			// if ( $(window).scrollTop() <= $(".for-slider").height() ) {
+			if( sliderCoorBottom > topWindowCoor && bottomWindowCoor > sliderCoorTop) {
 				// If user did resize of window and window width is 480 or less
 				if( $(window).width() <= 480 ) {
 
@@ -89,6 +101,7 @@ $(document).ready(function() {
 					if(countForClearRezize == 1) {
 
 						clearTimeout(sliderStart);
+						$(".eventmassage").text("clearTimeout(sliderStart) - stop slider");
 						// console.log("clear");
 					}					
 					// else the slide will start
@@ -98,8 +111,9 @@ $(document).ready(function() {
 
 					++countResizeForSlider;
 
-					if(countResizeForSlider == 1 && firstWidth == 0) {
+					if(countResizeForSlider == 1 && firstWidth == 0 && pauseSlide != "inpause") {
 						// console.log("start");
+						$(".eventmassage").text("start");
 						showSlide();
 
 					}					
@@ -113,10 +127,14 @@ $(document).ready(function() {
 
 		// If user make cklick on one of them slides buttons - we switch to the needing slide
 		$(".slider-num").click(function() {
+				// clear the time to "0" of your slider
+				clearTimeout(sliderStart);
+				$(".eventmassage").text("clearTimeout(sliderStart) - stop slider");
+				console.log("clear");
 
 				indexSlide = $(this).index(); // index of selected switch button
-
-				 for( indexSlideNum = 0; indexSlideNum <= countSliders - 1; ++indexSlideNum) {
+				// choiseSecondBtnNumber();
+				for( indexSlideNum = 0; indexSlideNum <= countSliders - 1; ++indexSlideNum) {
 
 					if( indexSlideNum == indexSlide ) {   // for needing button slide class is active
 						// assign active class for appropriate switch button
@@ -130,8 +148,7 @@ $(document).ready(function() {
 					}
 
 				}
-				// clear the time to "0" of our slider
-				clearTimeout(sliderStart); 
+				
 				// if user didn't click to the current slide
 				if((indexSlide + 1) != nextSlider) {
 					// fade first slide
@@ -139,61 +156,108 @@ $(document).ready(function() {
 					// and show the next slide
 					$(".slide-" + (indexSlide + 1) ).fadeIn(500);
 
-				}			
-
+				}
 					nextSlider = indexSlide + 1;
-					// call the function 
-					showSlide();	
+
+					if(pauseSlide != "inpause") {
+					// call the function						
+						showSlide();
+
+					}
 
 			});
+
+
+		var playBtnImg = "pause";
+		// Stop-Play Button
+			$(".play-pause-btn").click(function() {		
+
+				if( playBtnImg == "pause" ){
+
+					clearTimeout(sliderStart);
+
+					pauseSlide = "inpause";
+					// console.log("stop. clearTimeout of 'sliderStart' ");
+					playBtnImg = "play"
+
+					$(".eventmassage").text("clearTimeout(sliderStart) - stop slider");
+
+				} else {
+
+					pauseSlide = "";
+					playBtnImg = "pause";
+					// console.log("start function showSlide");
+					showSlide();
+
+					$(".eventmassage").text("start");
+
+				}
+
+				$(".play-pause-btn").html("<img src='img/"+ playBtnImg +"_btn.svg' alt='"+ playBtnImg +"' />");
+				
+			});
+
 
 	}
 
 	// Start the slide show if user can see this section of slide
-	function startSlide() {		
-		// if user doesn't see a slider in his window is no need to continue slide show 
-		if ( $(window).scrollTop() >= $(".for-slider").height() ) {		
+	function startSlide() {
 
-			countScrollForSlider = 0;
-			// if document was scrolled 
-			if(documentEvent == "document was scrolled" ) {
-				// stop the slide
-				clearTimeout(sliderStart);
+		sliderCoorTop = $(".for-slider").offset().top;
+		sliderCoorBottom = sliderCoorTop + $(window).height();
+		topWindowCoor = $(document).scrollTop();
+		bottomWindowCoor = topWindowCoor + $(window).height();
 
-			}			
-
-		} else { // else slider start
-
+		if( sliderCoorBottom > topWindowCoor && bottomWindowCoor > sliderCoorTop  && pauseSlide != "inpause") {
 			++countScrollForSlider;
 			// to start the slide once
-			if( countScrollForSlider == 1 ) {
-
+			if( countScrollForSlider == 1) {
+				console.log("start function showSlide");
+				$(".eventmassage").text("start");
+				countClearScrollForSlider = 0;
 				showSlide();
 
 			}	
+
+		} else {
+
+			countScrollForSlider = 0;
+			++countClearScrollForSlider;
+			// if document was scrolled
+			if(countClearScrollForSlider == 1) {
+				// stop the slide
+				// console.log("stop. clearTimeout of 'sliderStart' ");
+				$(".eventmassage").text("clearTimeout(sliderStart) - stop slider");
+				clearTimeout(sliderStart);
+
+			}			
 
 		}
 
 	}
 
 
+	var slideIndex;
+
 	function showSlide() {
 
 		// if($(window).width() > 480) {
 
 			clearTimeout(sliderStart);
-
+			console.log("slide  " + nextSlider);
 			sliderStart = setTimeout(function() {
 
-				for( j = 0; j <= countSliders - 1; ++j) {
+				$(".eventmassage").text("start");
 
-					if( j == nextSlider ) {
+				for( slideIndex = 0; slideIndex <= countSliders - 1; ++slideIndex) {
+
+					if( slideIndex == nextSlider ) {
 						// assign active class for appropriate switch button
-						$(".slider-num:eq("+j+")").addClass("bg-slider-num-active");
-						// other switch-button must be in the default state
-					} else if ( $(".slider-num:eq("+j+")").hasClass("bg-slider-num-active") ){
-						// remove the active class if it is no need
-						$(".slider-num:eq("+j+")").removeClass("bg-slider-num-active");
+						$(".slider-num:eq("+slideIndex+")").addClass("bg-slider-num-active");
+						// other switch buttons must be in the default state
+					} else if ( $(".slider-num:eq("+slideIndex+")").hasClass("bg-slider-num-active") ){
+						// remove the active class if it's no need
+						$(".slider-num:eq("+slideIndex+")").removeClass("bg-slider-num-active");
 
 					}
 
