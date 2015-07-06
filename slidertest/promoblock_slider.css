@@ -34,6 +34,8 @@
 
 .bg-for-mobile {
 	background-image: url("img/Sedona_Arizona_for_mobile.jpg");
+	background-size: cover;
+	background-position: center;
 }
 
 .slide-1 {
