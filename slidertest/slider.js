@@ -19,7 +19,7 @@ $(document).ready(function() {
 		var documentEvent = "document was downloaded";
 
 		var countSliderNum; 
-		var indexSlideNum ;
+		var indexSlideNum;
 
 		var sliderStart;
 

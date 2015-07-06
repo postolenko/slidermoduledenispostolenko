@@ -203,7 +203,7 @@ $(document).ready(function() {
 		topWindowCoor = $(document).scrollTop();
 		bottomWindowCoor = topWindowCoor + $(window).height();
 
-		if( sliderCoorBottom > topWindowCoor && bottomWindowCoor > sliderCoorTop  && pauseSlide != "inpause") {
+		if( sliderCoorBottom > topWindowCoor && bottomWindowCoor > sliderCoorTop && pauseSlide != "inpause") {
 			++countScrollForSlider;
 			// to start the slide once
 			if( countScrollForSlider == 1) {
