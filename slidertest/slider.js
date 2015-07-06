@@ -194,7 +194,7 @@ $(document).ready(function() {
 
 				}
 
-				$(".play-pause-btn img").attr("src","resources/slider/img/"+ playBtnImg +"_btn.svg");
+				$(".play-pause-btn img").attr("src","./img/"+ playBtnImg +"_btn.svg");
 				$(".play-pause-btn img").attr("alt",playBtnImg);
 				
 			});
