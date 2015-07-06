@@ -10,4 +10,4 @@ Is used JQuery.
 # http://postolenko.github.io/slidermoduledenispostolenko/slidertest
 
 Is my personal Module.
-For this module is free.
+For You this module is free.
