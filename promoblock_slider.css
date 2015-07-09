@@ -36,6 +36,7 @@
 	background-image: url("img/Sedona_Arizona_for_mobile.jpg");
 	background-size: cover;
 	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .slide-1 {
@@ -109,14 +110,7 @@
 	vertical-align: middle;
 }
 
-.play-pause-btn {
-	text-align: center;
-	width: 20%;
-	display: inline-block;
-	vertical-align: middle;
-	font-size: 20px;
-	line-height: 20px;
+.play-pause-btn {	
+	/*width: 48px; height: 48px;*/
 	cursor: pointer;
-	margin: 0 5px;
 }
-

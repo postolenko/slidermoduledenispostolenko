@@ -187,8 +187,8 @@ $(document).ready(function() {
 
 				}
 
-				$(".play-pause-btn img").attr("src","./img/"+ playBtnImg +"_btn.svg");
-				$(".play-pause-btn img").attr("alt",playBtnImg);
+				$(".play-pause-btn ").attr("src","./img/"+ playBtnImg +"_btn.svg");
+				$(".play-pause-btn ").attr("alt",playBtnImg);
 				
 			});
 
