@@ -1,4 +1,4 @@
-The this folder is module of this slider. 
+This is the folder of the module of this slider. 
 You can upload this code and use on your site.
 # http://postolenko.github.io/slidermoduledenispostolenko
 
